@@ -1,0 +1,107 @@
+﻿@model IEnumerable<appEstacionamento.Models.Movimentacoes>
+
+@{
+    ViewBag.Title = "Index";
+}
+@if (TempData["sucesso"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["sucesso"]</p>
+}
+
+@if (TempData["tabela"] != null)
+{
+    <p class="alert alert" id="successMessage">@TempData["tabela"]</p>
+}
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nova Entrada", "Create")
+</p>
+@using (Html.BeginForm())
+{
+
+
+    <div style="float: right">
+        <p>
+            Filtrar Placa: @Html.TextBox("SearchString")
+            <input class="btn btn-default" type="submit" value="Search" />
+        </p>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataEntrada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.horaEntrada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dataSaida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.horaSaida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duracao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tempoCobrado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.preco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valorPagar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataEntrada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.horaEntrada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataSaida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.horaSaida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duracao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tempoCobrado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valorPagar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.ActionLink("Pagar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.id }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

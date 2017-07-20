@@ -1,0 +1,50 @@
+﻿@model appEstacionamento.Models.Precos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Precos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dataIncial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataIncial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataFinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valorHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valorHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valorHoraAdicional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valorHoraAdicional)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
